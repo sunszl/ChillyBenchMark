@@ -1,0 +1,6 @@
+@ChillyBenchMarkNet_HostAddress = http://localhost:5206
+
+GET {{ChillyBenchMarkNet_HostAddress}}/BenchMark/
+Accept: application/json
+
+###
