@@ -1,16 +1,14 @@
+using ChillyBenchMarkNet.Model.ApiRequest;
+using ChillyBenchMarkNet.Model.ApiResponse;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace ChillyBenchMarkNet.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class BenchMarkController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<BenchMarkController> _logger;
 
         public BenchMarkController(ILogger<BenchMarkController> logger)
@@ -18,16 +16,15 @@ namespace ChillyBenchMarkNet.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpPost]
+        public ApiBaseResponse RegisterAccount(RegisterAccountReq registerAccountReq)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return new ApiBaseResponse { Success = true };
+        }
+
+        public String Test()
+        {
+            return "";
         }
     }
 }
