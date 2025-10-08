@@ -8,7 +8,7 @@
         #endregion
 
         private static int _SqlMode = 0;
-        private static string _connectionString = 1;
+        private static string _connectionString = "";
 
         public static void InitSqlHelper(int theSqlMode, string theConnectionString )
         {
